@@ -1,0 +1,14 @@
+//
+// Jumbotron
+// --------------------------------------------------
+
+
+.jumbotron {
+  margin-bottom: 0;
+  a:not(.btn) {
+    color: $jumbotron-link-color;
+    &:hover {
+      color: $jumbotron-link-hover-color;
+    }
+  }
+}

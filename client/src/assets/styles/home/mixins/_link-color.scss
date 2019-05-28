@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+// * @mixin link-color
+// * <a>标签的颜色样式
+// * @param $normal   正常颜色
+// * @param $hover    鼠标移入时颜色 (default: $normal)
+// * @param $visited  已访问后的颜色 (default: $normal) 已禁用
+@mixin link-color (
+    $normal,
+    $hover: $normal
+    // $visited: $normal
+) {
+    color: $normal;
+    &:hover { color: $hover; }
+    // &:visited { color: $visited; }
+}

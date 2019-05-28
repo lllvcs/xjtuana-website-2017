@@ -1,0 +1,18 @@
+footer {
+    .aboutus {
+        padding: 10px;
+        height: 130px;
+        color: $navbar-default-color;
+        background-color: lighten($navbar-default-bg, 10%);
+        .qrcode {
+            height: 80px;
+            width: 80px;
+        }
+    }
+    .copyright {
+        padding: 15px;
+        height: 50px;
+        color: $navbar-default-color;
+        background-color: $navbar-default-bg;
+    }
+}

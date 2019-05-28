@@ -1,0 +1,10 @@
+@import "options";
+@import "~hover.css/scss/mixins";
+@import "~hover.css/scss/hacks";
+
+@import "~hover.css/scss/effects/border-transitions/underline-from-center";
+@if $includeClasses {
+	.#{$nameSpace}-underline-from-center {
+		@include underline-from-center();
+	}
+}

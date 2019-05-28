@@ -1,0 +1,17 @@
+.swiper-container {
+    .swiper-wrapper {
+        .swiper-slide {
+            background-repeat: no-repeat;
+            // CSS参考上说在Firefox下必须设置这个，postion才生效
+            // 但是设置了之后只在Firefox下正常，别的有问题。
+            // 去掉之后Firefox也没什么问题。
+            // 可能跟用在Swiper里面有关。
+            // background-attachment: fixed;
+            background-position: center;
+                    background-size: cover;
+            -webkit-background-size: cover;
+               -moz-background-size: cover;
+                -ms-background-size: cover;
+        }
+    }
+}

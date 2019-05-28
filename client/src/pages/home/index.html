@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="{{ config('app.locale') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+
+    {{-- 页面标题 --}}
+    <title>@yield('title', 'XJTUANA') - 学生网络管理协会 - 西安交通大学</title>
+
+    {{-- CSRF Token --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+    <% for (var css in htmlWebpackPlugin.files.css) { %>
+    <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+    <% } %>
+
+    {{-- 可以添加css和js --}}
+    @yield('head')
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="//cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+        <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="app">
+        {{-- Header --}}
+        <header>
+            @section('header')
+                @include('home.components.navbar')
+            @show
+        </header>
+        
+        {{-- Main --}}
+        <main>
+            @section('main')
+                
+            @show
+        </main>
+
+        {{-- Footer --}}
+        <footer>
+            @section('footer')
+                @include('home.components.footer') 
+            @show
+        </footer> 
+    </div>
+    {{-- Toolbar --}}
+    @include('home.components.toolbar')
+
+    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+    <script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+    <% } %>
+
+    {{-- 可以添加js --}}
+    @yield('script')
+</body>
+</html>

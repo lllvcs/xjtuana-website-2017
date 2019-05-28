@@ -1,0 +1,12 @@
+//
+// Panels
+// --------------------------------------------------
+
+
+$panel-white-text:            $gray;
+$panel-white-border:          $gray;
+$panel-white-heading-bg:      #fff;
+
+.panel-white {
+  @include panel-variant($panel-white-border, $panel-white-text, $panel-white-heading-bg, $panel-white-border);
+}

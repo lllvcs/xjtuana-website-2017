@@ -1,0 +1,52 @@
+version: '2.4'
+
+services:
+  nginx:
+    container_name: xjtuana-website-nginx
+    image: nginx:alpine
+    restart: always
+    init: true
+    depends_on:
+      - php-fpm
+    networks:
+      internal_network:
+      nginx_network:
+        aliases:
+          - xjtuana-website
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - /path/to/website-2017:/docker/www:ro
+    environment:
+      - TZ=Asia/Shanghai
+
+  php-fpm:
+    container_name: xjtuana-website-php-fpm
+    image: xjtuana/website-php-fpm:latest
+    build:
+      context: ./php-fpm
+      dockerfile: Dockerfile
+    restart: always
+    init: true
+    volumes:
+      - /path/to/website-2017:/docker/www:ro
+      - /path/to/website-2017/bootstrap/cache:/docker/www/bootstrap/cache:rw
+      - /path/to/website-2017/storage:/docker/www/storage:rw
+    networks:
+      internal_network:
+        aliases:
+          - php-fpm
+      mariadb_network:
+      redis_network:
+
+networks:
+  internal_network:
+    name: xjtuana_website_network
+  nginx_network:
+    external: true
+    name: nginx_network
+  mariadb_network:
+    external: true
+    name: mariadb_network
+  redis_network:
+    external: true
+    name: redis_network

@@ -1,0 +1,18 @@
+// * @mixin shadow
+// * 阴影样式
+// * @param $color      阴影颜色
+// * @param $horizontal 水平距离
+// * @param $vertical   垂直距离
+// * @param $blur       模糊距离
+// * @param $spread     扩展距离
+@mixin shadow (
+    $color: #4a4a4a,
+    $horizontal: 0,
+    $vertical: 1px,
+    $blur: 5px,
+    $spread: 0px
+) {
+    -webkit-box-shadow: $horizontal $vertical $blur $spread $color;
+       -moz-box-shadow: $horizontal $vertical $blur $spread $color;
+            box-shadow: $horizontal $vertical $blur $spread $color;
+}
